@@ -1,7 +1,9 @@
 <h1>ルーレット</h1>
-<p class="result"><%= @user.sample %></p>
-<p class="tittle"><%= @content.sample %></p>
-<p class="result"><%= @user.sample %></p>
-<p class="tittle"><%= @content.sample %></p>
-<p class="result"><%= @user.sample %></p>
-<p class="tittle"><%= @content.sample %></p>
+<%= @users.each do |user| %>
+  <div>
+    <p>[お題]<%= user.title %></p>
+    <p>[内容]<%= user.content %></p>
+    <p>[結果]<%= user.image %></p>
+  </div>
+  <hr>
+<% end %>

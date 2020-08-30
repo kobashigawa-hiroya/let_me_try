@@ -1,12 +1,21 @@
 class UsersController < ApplicationController
-  def index
-    @user = ["先生a", "先生b", "先生c", "先生d", "先生e", "先生f", "先生g", "先生h"]
-    @content = ["風呂掃除", "選択", "トイレ掃除", "掃除機", "休み", "庭掃除", "夕飯", "朝食", "昼食"]
-  end
+  
+    def new
+      @user = User.new
+    end
 
-  def new
+
+  def index
+    @users = User.includes(:user)
   end
 
   def create
+    users.create!(user_params)
+    redirect_to 
   end
+private
+
+def user_params
+  params.require(:user).permit(:title, :content)
+
 end
