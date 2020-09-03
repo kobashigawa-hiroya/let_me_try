@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_03_113203) do
+ActiveRecord::Schema.define(version: 2020_09_03_124830) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -38,8 +38,38 @@ ActiveRecord::Schema.define(version: 2020_09_03_113203) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "counters", force: :cascade do |t|
+    t.datetime "datetime"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "duties", force: :cascade do |t|
+    t.string "title"
+    t.boolean "flag"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "members", force: :cascade do |t|
     t.string "name"
+    t.string "flag：boolean"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "records", force: :cascade do |t|
+    t.integer "user_id_id", null: false
+    t.integer "counter_id_id", null: false
+    t.integer "duty_id_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["counter_id_id"], name: "index_records_on_counter_id_id"
+    t.index ["duty_id_id"], name: "index_records_on_duty_id_id"
+    t.index ["user_id_id"], name: "index_records_on_user_id_id"
+  end
+
+  create_table "users", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "email", default: "", null: false
@@ -47,9 +77,11 @@ ActiveRecord::Schema.define(version: 2020_09_03_113203) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.boolean "flag"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "records", "counter_ids"
+  add_foreign_key "records", "duty_ids"
+  add_foreign_key "records", "user_ids"
 end

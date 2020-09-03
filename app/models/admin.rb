@@ -5,7 +5,7 @@ class Admin < ApplicationRecord
       t.text :content
       t.string :title
       t.string :image
-      t.timestamps
+      t.timestamp
     end
   end
 end
