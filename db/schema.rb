@@ -38,20 +38,13 @@ ActiveRecord::Schema.define(version: 2020_08_30_143544) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
-  create_table "admis", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "users", force: :cascade do |t|
-    t.integer "user_id", null: false
     t.string "title"
     t.string "content"
     t.string "image"
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_users_on_user_id"
   end
 
-  add_foreign_key "users", "users"
 end

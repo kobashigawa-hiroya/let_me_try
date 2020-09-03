@@ -1,3 +1,3 @@
 class User < ApplicationRecord
-  belongs_to :user
+  validates :title, :content, :image, :name, presence: true
 end
