@@ -1,0 +1,20 @@
+<div class="container border p-3">
+  <h1>member</h1>
+  <table class="table">
+    <thead>
+      <% @members.each.with_index(1) do |member, i| %>
+        <tr>
+          <th scope="col"><%= i %></th>
+          <th scope="col"><%= check_box_tag :test1 %>
+            <%= label_tag :test1, member.name %>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+            <td><%= link_to "詳細", member %>
+              <%= link_to "編集", edit_admin_member_path(member) %>
+              <%= link_to "削除", member, method: :delete, data: { confirm: "削除しますか?" } %>
+            </td>
+          </tr>
+        </thead>
+        <tbody>
+        <% end %>
+      </div >
