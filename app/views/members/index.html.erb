@@ -10,7 +10,9 @@
             <th scope="col">Last</th>
             <th scope="col">Handle</th>
             <td><%= link_to "詳細", member %>
-              <%= link_to "編集", edit_admin_member_path(member) %>
+              <%= link_to , edit_admin_member_path(member) do %>
+                <i class="fas fa-edit"></i>
+              <% end %>
               <%= link_to "削除", member, method: :delete, data: { confirm: "削除しますか?" } %>
             </td>
           </tr>
