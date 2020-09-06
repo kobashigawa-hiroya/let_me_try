@@ -4,7 +4,6 @@ class MembersController < ApplicationController
   end
 
   def index
-    @members = Member.order(id: :asc)
   end
 
   def create
@@ -22,14 +21,14 @@ class MembersController < ApplicationController
     redirect_to member
   end
 
-  def edit
-    @member = Member.find(params[:id])
-  end
-
   def update
     @member = Member.find(params[:id])
-    member.update!(member_params)
-    redirect_to member
+    @member.update!(member_params)
+    redirect_to root_path notice: "更新しました"
+  end
+
+  def edit
+    @member = Member.find(params[:id])
   end
 
   private

@@ -1,0 +1,7 @@
+<% if @member.errors.any? %>
+  <% @member.errors.full_messages.each do |msg| %>
+    <div class ="alert alert-danger" role="alert">
+      <a href="#" class="close" data-dismiss="alert">✖️</a>
+    </div>
+  <% end %>
+<% end %>

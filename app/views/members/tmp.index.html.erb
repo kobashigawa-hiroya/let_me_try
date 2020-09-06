@@ -1,0 +1,25 @@
+  
+<table class="table">
+  <thead>
+    <% @members.each.with_index(1) do |member, i| %>
+      <tr>
+        <th scope="col"><%= i %></th>
+        <th scope="col">
+          <%= check_box_tag "name[]" %>
+        </th>
+        <th scope="col">Last</th>
+        <th scope="col">Handle</th>
+        <td><%= link_to "詳細", member %>
+          <%= link_to edit_member_path(member),class:"btn btn-outline-info" do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
+          <%= link_to  member, class:'btn btn-primary',  method: :delete, data: { confirm: "削除しますか?" } do %>
+            <i class="far fa-trash-alt"></i>
+          <% end %>
+        </td>
+      </tr>
+    </thead>
+    <tbody>
+    <% end %>
+  </div>
+</table>

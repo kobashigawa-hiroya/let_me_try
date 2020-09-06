@@ -1,4 +1,11 @@
 @import "bootstrap/scss/bootstrap";
+@import "bootstrap/scss/bootstrap";
+
+$fa-font-path: '@fortawesome/fontawesome-free/webfonts';
+@import "@fortawesome/fontawesome-free/scss/fontawesome";
+@import "@fortawesome/fontawesome-free/scss/regular";
+@import "@fortawesome/fontawesome-free/scss/solid";
+@import "@fortawesome/fontawesome-free/scss/brands";
 
 // ログイン画面
 
@@ -12,6 +19,10 @@
 
 .alert-notice {
   @extend .alert-info;
+}
+
+.alert-notice {
+  @extend .alert-success;
 }
 
 .alert-alert {

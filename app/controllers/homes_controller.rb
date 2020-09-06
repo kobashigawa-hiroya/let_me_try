@@ -1,4 +1,6 @@
 class HomesController < ApplicationController
-  def inde
+  def index
+    @record = Record.new
+    @members = Member.order(id: :asc)
   end
 end
