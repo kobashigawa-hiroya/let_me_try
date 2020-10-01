@@ -1,2 +1,0 @@
-class Dutie < ApplicationRecord
-end

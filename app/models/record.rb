@@ -1,5 +1,5 @@
 class Record < ApplicationRecord
-  belongs_to :user_id
-  belongs_to :counter_id
-  belongs_to :duty_id
+  belongs_to :member
+  belongs_to :counter
+  belongs_to :duty
 end

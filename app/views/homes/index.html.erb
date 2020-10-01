@@ -1,13 +1,36 @@
+<%= javascript_pack_tag 'hello_vue' %>
+<div id='hello'>
+  {{message}}
+  <app></app>
+</div>
 <%= render 'shared/flash_messages' %>
 <div class="container border p-3">
   <h1>トップページ</h1>
-  <%= form_with model: @record, local: true do |form| %>
-    <% @members.each do |member| %>
-      <p>
-        <%= check_box_tag "name[]", member.id, false, id: "name_#{member.id}" %>
-        <%= label_tag "name_#{member.id}", member.name %>
-      </p>
-    <% end %>
-    <%= form.submit "送信" %>
+  <div id= "member">
+    <%= form_with model: @record, local: true do |form| %>
+      <% @members.each do |member| %>
+        <p>
+          <%= check_box_tag "name[]", member.id, false, id: "name_#{member.id}", class: "member-checkbox" %>
+          <%= label_tag "name_#{member.id}", member.name %>
+        </p>
+      <% end %>
+    </div>
+    <p class="memberuret"></p>
+    <div id="duty">
+      <% @duties.each do |duty| %>
+        <p class="duty-checkboxes">
+          <%= check_box_tag "title[]", duty.id, false, id: "title_#{duty.id}", class: "title-checkbox" %>
+          <%= label_tag "title_#{duty.id}", duty.title %>
+          <input type="number" class="d-none people-number">
+        </p>
+      <% end %>
+      <p class="dutyruret"></p>
+      <td><span><b>合計 :</b></span></td>
+      <td><b><span id="total_sum_value"></span>個</b></td>
+      <p></p>
+      <%= form.submit "送信" %>
+      <button id="btn" type="button">Count</button>
+    </form>
   <% end %>
+</div>
 </div>

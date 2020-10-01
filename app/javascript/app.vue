@@ -1,0 +1,24 @@
+<template>
+  <div id="app">
+    <p>{{ message }}</p>
+  </div>
+</template>
+
+<script>
+export default {
+  data: function () {
+    return {
+      message: "let roulette!",
+    };
+  },
+};
+</script>
+
+<style scoped>
+p {
+  font-size: 2em;
+  text-align: center;
+  color: blue;
+  font-weight: 500;
+}
+</style>

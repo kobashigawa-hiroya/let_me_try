@@ -1,2 +1,7 @@
-<h1>Records#create</h1>
-<p>Find me in app/views/records/create.html.erb</p>
+<h1>結果発表</h1>
+<% @members.each do |member| %>
+  <%= member.name %>
+<% end %>
+<% @duties.each do |duty| %>
+  <%= duty.title %>
+<% end %>

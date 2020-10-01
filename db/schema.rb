@@ -46,27 +46,27 @@ ActiveRecord::Schema.define(version: 2020_09_03_124830) do
 
   create_table "duties", force: :cascade do |t|
     t.string "title"
-    t.boolean "flag"
+    t.boolean "display", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "members", force: :cascade do |t|
     t.string "name"
-    t.string "flag：boolean"
+    t.boolean "display", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "records", force: :cascade do |t|
-    t.integer "user_id_id", null: false
-    t.integer "counter_id_id", null: false
-    t.integer "duty_id_id", null: false
+    t.integer "member_id", null: false
+    t.integer "counter_id", null: false
+    t.integer "duty_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["counter_id_id"], name: "index_records_on_counter_id_id"
-    t.index ["duty_id_id"], name: "index_records_on_duty_id_id"
-    t.index ["user_id_id"], name: "index_records_on_user_id_id"
+    t.index ["counter_id"], name: "index_records_on_counter_id"
+    t.index ["duty_id"], name: "index_records_on_duty_id"
+    t.index ["member_id"], name: "index_records_on_member_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(version: 2020_09_03_124830) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "records", "counter_ids"
-  add_foreign_key "records", "duty_ids"
-  add_foreign_key "records", "user_ids"
+  add_foreign_key "records", "counters"
+  add_foreign_key "records", "duties"
+  add_foreign_key "records", "members"
 end
