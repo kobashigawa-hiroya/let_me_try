@@ -72,5 +72,13 @@ document.addEventListener('turbolinks:load', () => {
       App
     }
   })
-
+  var hp = new Vue({
+    el: "#app",
+    data: {
+      items: [{
+        rbc: "5.1",
+        hgb: "7.8"
+      }]
+    }
+  });
 })
