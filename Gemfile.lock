@@ -99,6 +99,7 @@ GEM
       devise (>= 4.7.1)
     erubi (1.9.0)
     ffi (1.13.1)
+    foreman (0.87.2)
     formtastic (3.1.5)
       actionpack (>= 3.2.13)
     formtastic_i18n (0.6.0)
@@ -278,6 +279,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   devise
   devise-i18n
+  foreman
   jbuilder (~> 2.7)
   kaminari
   listen (~> 3.2)

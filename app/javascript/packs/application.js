@@ -116,6 +116,7 @@ document.addEventListener("turbolinks:load", () => {
     });
   });
 
+
   //   if ("get_textbox_value" === "calculated_total_sum") {}
   // });
   // var dutyTitle = [" "]
