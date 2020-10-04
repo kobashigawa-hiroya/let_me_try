@@ -17,8 +17,6 @@ environment.plugins.append(
 );
 
 
-const customConfig = require('./custom')
-environment.config.merge(customConfig)
 
 module.exports = environment
 environment.plugins.prepend('VueLoaderPlugin', new VueLoaderPlugin())
