@@ -10,7 +10,6 @@ require("@rails/ujs").start();
 require("turbolinks").start();
 require("@rails/activestorage").start();
 require("channels");
-require("bootstrap/dist/js/bootstrap");
 require("@fortawesome/fontawesome-free/js/all");
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -19,6 +18,9 @@ require("@fortawesome/fontawesome-free/js/all");
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+import Turbolinks from "turbolinks";
+
+Turbolinks.start();
 
 document.addEventListener("turbolinks:load", () => {
   const titleCheckboxs = document.querySelectorAll(".title-checkbox");
@@ -46,7 +48,6 @@ document.addEventListener("turbolinks:load", () => {
       } else {
         DutyInputNumber.removeAttribute("name");
         DutyInputNumber.classList.add("d-none");
-
       }
 
       // input.style.display = "none";
@@ -82,18 +83,18 @@ document.addEventListener("turbolinks:load", () => {
 
     btn.addEventListener("click", getCheckedCount, false);
   });
-  $(function () {
+  $(function() {
     $("input:checkbox")
-      .change(function () {
+      .change(function() {
         var memberCheckCount = $("#member input:checkbox:checked").length;
         $("p.memberuret").text("選択合計：" + memberCheckCount + "人");
       })
       .trigger("change");
   });
-  $("#duty").on("input", ".people-number", function () {
+  $("#duty").on("input", ".people-number", function() {
     calculatedTotalSum = 0;
 
-    $("#duty .people-number").each(function () {
+    $("#duty .people-number").each(function() {
       getTextboxValue = $(this).val();
       if ($.isNumeric(getTextboxValue)) {
         calculatedTotalSum += parseFloat(getTextboxValue);
@@ -101,8 +102,8 @@ document.addEventListener("turbolinks:load", () => {
     });
     $("#total_sum_value").html(calculatedTotalSum);
 
-    $(function () {
-      $("input:checkbox").change(function () {
+    $(function() {
+      $("input:checkbox").change(function() {
         if ("getTextboxValue" === "calculatedTotalSum") {
           var dutyCheckCount = $("#duty input:checkbox:checked").length;
           $("p.dutyruret").text("選択合計：" + dutyCheckCount + "個");
@@ -115,7 +116,6 @@ document.addEventListener("turbolinks:load", () => {
       // $('p').text(dutybox);
     });
   });
-
 
   //   if ("get_textbox_value" === "calculated_total_sum") {}
   // });
