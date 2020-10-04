@@ -6,8 +6,8 @@ ruby '2.6.6'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
+gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
@@ -28,6 +28,13 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+gem 'devise'
+gem 'activeadmin'
+gem 'rails-i18n', '~> 6.0'
+gem 'devise-i18n'
+gem 'kaminari'
+gem 'foreman'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -40,13 +47,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'activeadmin'
-gem 'devise'
-gem 'pry-rails'
-gem 'devise'
-gem 'rails-i18n', '~> 6.0'
-gem 'devise-i18n'
-gem 'pry-byebug'
+  gem 'pry-byebug'
 end
 
 group :test do
@@ -58,7 +59,4 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'kaminari'
-gem 'foreman'
-gem 'pg', '0.20.0'
+# gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
