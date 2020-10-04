@@ -43,6 +43,10 @@ group :development do
   gem 'activeadmin'
 gem 'devise'
 gem 'pry-rails'
+gem 'devise'
+gem 'rails-i18n', '~> 6.0'
+gem 'devise-i18n'
+gem 'pry-byebug'
 end
 
 group :test do
@@ -55,3 +59,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'kaminari'
+gem 'foreman'

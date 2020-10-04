@@ -1,8 +1,16 @@
 Rails.application.routes.draw do
+  get "records/index"
+  get "records/create"
+  devise_for :users
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  root  "users#index"
-  resources :users
+  root "homes#index"
+  resources :members
+  resources :records
+  resources :counters
+  resources :duties
+  get "/api/books", to: "api/books#index"
 
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  # Book一覧表示用のパス
+  get "/books", to: "books#index"
 end
